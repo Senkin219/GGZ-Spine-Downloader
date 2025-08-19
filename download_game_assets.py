@@ -90,7 +90,7 @@ def download_game_assets(manifest, game_version, max_workers=6):
 
 
 def get_version():
-    version = requests.get("https://apps.apple.com/cn/app/id737651307?dataOnly=true").json()["pageData"]["versionHistory"][0]["versionString"].split(".")
+    version = requests.get("https://uclient-api.itunes.apple.com/WebObjects/MZStorePlatform.woa/wa/lookup?version=2&id=737651307&p=mdm-lockup&caller=MDM&cc=cn").json()["results"]["737651307"]["offers"][0]["version"]["display"].split(".")
     return f"{version[0]}_{version[1]}"
 
 
