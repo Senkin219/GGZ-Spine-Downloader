@@ -31,7 +31,7 @@ def extract_spine_models(file_path):
                 out_path = Path(out_dir, data.m_Name)
                 if value.type.name == "TextAsset" and value.container.endswith(".txt"):
                     with open(out_path, "w", encoding="utf8") as f:
-                        f.write(data.m_Script)
+                        f.write(data.m_Script.replace("\r\n","\n"))
                 elif value.type.name == "TextAsset" and value.container.endswith(".bytes"):
                     with open(out_path, "wb") as f:
                         f.write(data.m_Script.encode("utf-8", "surrogateescape"))
